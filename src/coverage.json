@@ -1,0 +1,304 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T23:57:23.258Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 12,
+    "implemented": 11,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Implement the global Velora design system across the app: use the provided color palette (#F6C1C7 blush pink, #FDF6EC warm cream, #D4AF7F soft gold, #E7A9B0 muted rose), typography (Playfair Display for headings, Montserrat or Lato for body, Great Vibes for affirmations/quotes), rounded components, soft shadows, subtle gradients, gentle fade-in animations, and consistent spacing/layout patterns.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js",
+          "frontend/src/components/velora/VeloraLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Add app-wide user identity support using Internet Identity so that status selection, premium status, favorites, and journal entries are stored per user principal. The app should handle signed-out state gracefully (e.g., allow browsing public/free portions, but require sign-in for saving personal data).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/auth/AuthButton.tsx",
+          "frontend/src/components/auth/RequireSignInInline.tsx",
+          "frontend/src/hooks/useUserSession.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/auth/AuthButton.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Backend: implement Motoko canister APIs and stable storage for per-user profile (status, optional nickname, premium flag), Text Softly favorites, and journal entries. Ensure data survives canister upgrades using stable data patterns consistent with the single-actor architecture.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Implement Audio Lessons as a premium-gated section reachable from the Premium Features tabs. For the MVP, provide a simple list UI (titles + locked states for non-premium) consistent with the Velora theme; playback can be represented as non-functional placeholders unless audio assets are provided.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/AudioLessonsTab.tsx",
+          "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "frontend/public/assets/generated/floral-corner-accent.dim_512x512.png"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "frontend/public/assets/generated/floral-corner-accent.dim_512x512.png"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Create the Splash Screen UI with a blush pink gradient background, a typographic logo reading “Velora” (Playfair Display with a soft-gold accent treatment), the tagline “Love deeply. Stay whole.”, and a primary CTA button labeled “Start Your Journey” (cream background, blush text, rounded). Navigating via the CTA should move the user to the Welcome Screen.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/SplashScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/SplashScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Create the Welcome Screen where the user selects a relationship/status from exactly: “Single”, “In a relationship”, “Healing”, “Married”. Use a soft card layout with muted rose borders and a rounded gold “Continue” button. Persist the selected status for the user and proceed to the Home/Daily Program screen on Continue.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/WelcomeScreen.tsx",
+          "frontend/src/hooks/useUserProfile.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/WelcomeScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement the Home / Daily Program screen for a 30-day program: show a day header (e.g., “Day 1 – Your Soft Feminine Glow”), a lesson card (blush pink card with Playfair heading + Montserrat/Lato body), a centered daily affirmation rendered in Great Vibes with soft rose color, and Next/Previous navigation buttons with gold accents. The user must be able to move between days 1–30.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/data/program30Days.ts",
+          "frontend/src/screens/DailyProgramScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/data/program30Days.ts",
+          "frontend/src/screens/DailyProgramScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement premium gating rules and UI across the app: free users can access only the first 3 days of the 30-day program; premium users can access all 30 days plus Text Softly scripts, Journal, and Audio Lessons. Premium-only content must be clearly labeled/visually separated, and locked items must show padlock indicators. No ads should be shown anywhere in the MVP.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/icon-padlock-softrose.dim_128x128.png",
+          "frontend/src/hooks/usePremium.ts",
+          "frontend/src/components/premium/PremiumGate.tsx",
+          "frontend/src/screens/DailyProgramScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/icon-padlock-softrose.dim_128x128.png",
+          "frontend/src/components/premium/PremiumGate.tsx",
+          "frontend/src/screens/DailyProgramScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Create the Premium Features screen with tabs labeled exactly “Text Softly”, “Journal”, and “Audio Lessons”. Show locked content indicators (padlock icons) when the user is not premium. Include a primary CTA button labeled exactly “Unlock Full Program – ₦2,500/month” with a blush gradient background that initiates the premium upgrade flow in-app (MVP: implement as an app-internal upgrade action that toggles/stores premium status; no external ads).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "frontend/src/hooks/usePremium.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement the Text Softly Generator screen: show category cards for exactly “Pull Away”, “Flirty”, “Apology”, “Missing You”, and “Boundaries”. When a category is chosen, display a randomly generated text message in a speech-bubble style. Include a favorite (heart) toggle for the displayed/generated message and maintain a per-user list of favorites. Access must be premium-gated per the monetization rules.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/icon-heart-softpink.dim_128x128.png",
+          "frontend/src/data/textSoftlyMessages.ts",
+          "frontend/src/hooks/useFavorites.ts",
+          "frontend/src/screens/TextSoftlyScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/assets/generated/icon-heart-softpink.dim_128x128.png",
+          "frontend/src/data/textSoftlyMessages.ts",
+          "frontend/src/screens/TextSoftlyScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement the Journal screen with a lined-entry style on a cream background, header text exactly “My Private Thoughts” (Playfair Display), an “Add Entry” CTA styled as a rounded blush card with gold accent text, and a “Save” button styled as a soft rose bubble. Journal entries must be stored privately per user and gated to premium users.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/hooks/useJournal.ts",
+          "frontend/src/screens/JournalScreen.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/JournalScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Create the Profile / Settings screen with a blush pink fade background, user info including optional nickname, a subscription status indicator that shows a gold badge when premium, and settings options rendered with soft rose minimalist icons. Persist nickname and display it across the app where appropriate.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/screens/ProfileScreen.tsx",
+          "frontend/src/hooks/useUserProfile.ts",
+          "frontend/src/components/velora/AppHeader.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/screens/ProfileScreen.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/floral-corner-accent.dim_512x512.png",
+    "frontend/public/assets/generated/icon-heart-softpink.dim_128x128.png",
+    "frontend/public/assets/generated/icon-padlock-softrose.dim_128x128.png",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/auth/AuthButton.tsx",
+    "frontend/src/components/layout/AppHeader.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/premium/PremiumGate.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/data/program30Days.ts",
+    "frontend/src/data/textSoftlyMessages.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/screens/DailyProgramScreen.tsx",
+    "frontend/src/screens/JournalScreen.tsx",
+    "frontend/src/screens/PremiumFeaturesScreen.tsx",
+    "frontend/src/screens/ProfileScreen.tsx",
+    "frontend/src/screens/SplashScreen.tsx",
+    "frontend/src/screens/TextSoftlyScreen.tsx",
+    "frontend/src/screens/WelcomeScreen.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

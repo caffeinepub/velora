@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 1.5rem;
+        
+        /* Velora Color Palette - Light Mode */
+        --blush: 0.88 0.12 10;        /* #F6C1C7 - Blush Pink */
+        --cream: 0.97 0.03 70;         /* #FDF6EC - Warm Cream */
+        --gold: 0.75 0.08 60;          /* #D4AF7F - Soft Gold */
+        --rose: 0.82 0.10 10;          /* #E7A9B0 - Muted Rose */
+        
+        --background: 0.97 0.03 70;    /* Warm Cream */
+        --foreground: 0.30 0.02 20;    /* Dark text */
+        --card: 0.88 0.12 10;          /* Blush Pink */
+        --card-foreground: 0.30 0.02 20;
+        --popover: 0.97 0.03 70;
+        --popover-foreground: 0.30 0.02 20;
+        --primary: 0.88 0.12 10;       /* Blush Pink */
+        --primary-foreground: 0.30 0.02 20;
+        --secondary: 0.75 0.08 60;     /* Soft Gold */
+        --secondary-foreground: 0.30 0.02 20;
+        --muted: 0.82 0.10 10;         /* Muted Rose */
+        --muted-foreground: 0.50 0.02 20;
+        --accent: 0.75 0.08 60;        /* Soft Gold */
+        --accent-foreground: 0.30 0.02 20;
+        --destructive: 0.577 0.245 27.325;
+        --destructive-foreground: 0.985 0 0;
+        --border: 0.82 0.10 10;        /* Muted Rose */
+        --input: 0.82 0.10 10;
+        --ring: 0.75 0.08 60;          /* Soft Gold */
+    }
+
+    .dark {
+        --background: 0.20 0.02 20;
+        --foreground: 0.97 0.03 70;
+        --card: 0.25 0.05 15;
+        --card-foreground: 0.97 0.03 70;
+        --popover: 0.25 0.05 15;
+        --popover-foreground: 0.97 0.03 70;
+        --primary: 0.88 0.12 10;
+        --primary-foreground: 0.30 0.02 20;
+        --secondary: 0.75 0.08 60;
+        --secondary-foreground: 0.97 0.03 70;
+        --muted: 0.35 0.05 15;
+        --muted-foreground: 0.70 0.05 50;
+        --accent: 0.75 0.08 60;
+        --accent-foreground: 0.97 0.03 70;
+        --destructive: 0.704 0.191 22.216;
+        --destructive-foreground: 0.97 0.03 70;
+        --border: 0.35 0.05 15;
+        --input: 0.35 0.05 15;
+        --ring: 0.75 0.08 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .font-script {
+        font-family: 'Great Vibes', cursive;
+    }
+}
+
+@layer utilities {
+    .fade-in {
+        animation: fadeIn 0.6s ease-in;
+    }
+    
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .gradient-blush {
+        background: linear-gradient(135deg, oklch(var(--blush)) 0%, oklch(var(--rose)) 100%);
+    }
+    
+    .gradient-cream {
+        background: linear-gradient(135deg, oklch(var(--cream)) 0%, oklch(0.92 0.05 60) 100%);
+    }
+    
+    .gradient-gold {
+        background: linear-gradient(135deg, oklch(var(--gold)) 0%, oklch(0.70 0.10 55) 100%);
+    }
+    
+    .soft-shadow {
+        box-shadow: 0 4px 20px rgba(246, 193, 199, 0.15);
+    }
+    
+    .soft-shadow-lg {
+        box-shadow: 0 8px 30px rgba(246, 193, 199, 0.2);
+    }
+    
+    .lined-paper {
+        background-image: repeating-linear-gradient(
+            transparent,
+            transparent 31px,
+            oklch(var(--rose) / 0.2) 31px,
+            oklch(var(--rose) / 0.2) 32px
+        );
+        background-size: 100% 32px;
+        line-height: 32px;
+    }
+}

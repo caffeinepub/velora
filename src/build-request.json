@@ -1,0 +1,256 @@
+{
+  "kind": "build_request",
+  "title": "Build Velora MVP: 30-day program with premium gating, Text Softly generator, journal, and profile screens",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement the global Velora design system across the app: use the provided color palette (#F6C1C7 blush pink, #FDF6EC warm cream, #D4AF7F soft gold, #E7A9B0 muted rose), typography (Playfair Display for headings, Montserrat or Lato for body, Great Vibes for affirmations/quotes), rounded components, soft shadows, subtle gradients, gentle fade-in animations, and consistent spacing/layout patterns.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Color Palette ... Fonts ... Extra Features"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All primary surfaces/buttons/cards use the specified palette and avoid off-brand colors",
+        "Headings render in Playfair Display; body copy renders in Montserrat or Lato; affirmation/quote text renders in Great Vibes",
+        "Buttons and cards are rounded with soft shadows; screens use soft gradients and gentle fade-in transitions"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create the Splash Screen UI with a blush pink gradient background, a typographic logo reading “Velora” (Playfair Display with a soft-gold accent treatment), the tagline “Love deeply. Stay whole.”, and a primary CTA button labeled “Start Your Journey” (cream background, blush text, rounded). Navigating via the CTA should move the user to the Welcome Screen.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "1️⃣ Splash Screen ... Button: \"Start Your Journey\""
+        ]
+      },
+      "acceptanceCriteria": [
+        "Splash screen matches specified background, logo, tagline, and CTA styling",
+        "Clicking/tapping “Start Your Journey” navigates to the Welcome Screen"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create the Welcome Screen where the user selects a relationship/status from exactly: “Single”, “In a relationship”, “Healing”, “Married”. Use a soft card layout with muted rose borders and a rounded gold “Continue” button. Persist the selected status for the user and proceed to the Home/Daily Program screen on Continue.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "2️⃣ Welcome Screen\n\nUser selects status: Single / In a relationship / Healing / Married\n\nSoft card layout with muted rose borders\n\nContinue button: Rounded gold button"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can select exactly one of the four statuses and see clear selected-state styling",
+        "Continue is disabled until a status is selected (or an equivalent clear validation is present)",
+        "Selected status is persisted and available on subsequent app loads/sign-ins",
+        "Continue navigates to the Home/Daily Program screen"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement the Home / Daily Program screen for a 30-day program: show a day header (e.g., “Day 1 – Your Soft Feminine Glow”), a lesson card (blush pink card with Playfair heading + Montserrat/Lato body), a centered daily affirmation rendered in Great Vibes with soft rose color, and Next/Previous navigation buttons with gold accents. The user must be able to move between days 1–30.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "3️⃣ Home / Daily Program\n\nHeader: \"Day 1 – Your Soft Feminine Glow\"\n\nLesson Card: Blush Pink card, Playfair Display heading, Montserrat body\n\nDaily Affirmation: Centered, Great Vibes font, soft rose color\n\nNavigation: Next / Previous buttons, gold accents"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can navigate forward/backward across days 1–30 with clear disabled states at boundaries",
+        "Each day shows a title, lesson body text, and an affirmation area with Great Vibes styling",
+        "Transitions between days use gentle fade-in animation"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement premium gating rules and UI across the app: free users can access only the first 3 days of the 30-day program; premium users can access all 30 days plus Text Softly scripts, Journal, and Audio Lessons. Premium-only content must be clearly labeled/visually separated, and locked items must show padlock indicators. No ads should be shown anywhere in the MVP.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Monetization Flow\n\nFree: First 3 days of the 30-Day Program\n\nPremium: ₦2,500/month, full 30-day program, Text Softly scripts, Journal access, Audio lessons\n\nAds: None at launch",
+          "Premium content clearly separated for subscription",
+          "Locked content: Soft padlock icons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Non-premium users cannot open days 4–30; attempting to access prompts the premium upgrade path",
+        "Text Softly, Journal, and Audio Lessons are inaccessible for non-premium users and show locked UI states",
+        "Premium users can access days 1–30 and all premium tabs/features",
+        "No ad components or ad placeholders are present"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Create the Premium Features screen with tabs labeled exactly “Text Softly”, “Journal”, and “Audio Lessons”. Show locked content indicators (padlock icons) when the user is not premium. Include a primary CTA button labeled exactly “Unlock Full Program – ₦2,500/month” with a blush gradient background that initiates the premium upgrade flow in-app (MVP: implement as an app-internal upgrade action that toggles/stores premium status; no external ads).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "4️⃣ Premium Features Screen\n\nTabs: Text Softly / Journal / Audio Lessons\n\nLocked content: Soft padlock icons\n\nButton: \"Unlock Full Program – ₦2,500/month\" (Blush gradient background)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Premium Features screen displays the 3 tabs with correct labels",
+        "If user is not premium, premium-only areas show padlock icons and a clear locked message/state",
+        "The “Unlock Full Program – ₦2,500/month” CTA updates premium status for the signed-in user and unlocks premium features immediately",
+        "Premium state persists across reloads for the same user"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement the Text Softly Generator screen: show category cards for exactly “Pull Away”, “Flirty”, “Apology”, “Missing You”, and “Boundaries”. When a category is chosen, display a randomly generated text message in a speech-bubble style. Include a favorite (heart) toggle for the displayed/generated message and maintain a per-user list of favorites. Access must be premium-gated per the monetization rules.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "5️⃣ Text Softly Generator\n\nCategories: Pull Away / Flirty / Apology / Missing You / Boundaries\n\nRounded cards for each category\n\nDisplays a randomly generated text in a speech bubble style\n\nFavorite option: Heart icon, soft pink"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Only premium users can use the generator; non-premium users see a locked state and upgrade CTA",
+        "Selecting a category generates and displays a message in a speech-bubble UI",
+        "User can favorite/unfavorite a generated message with a heart toggle",
+        "Favorites persist per user and are visible again after refresh/sign-in"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement the Journal screen with a lined-entry style on a cream background, header text exactly “My Private Thoughts” (Playfair Display), an “Add Entry” CTA styled as a rounded blush card with gold accent text, and a “Save” button styled as a soft rose bubble. Journal entries must be stored privately per user and gated to premium users.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "6️⃣ Journal Screen\n\nLined entry style on cream background\n\nHeader: \"My Private Thoughts\" (Playfair Display)\n\nAdd Entry button: Rounded blush card, gold accent text\n\nSave button: Soft rose bubble",
+          "Premium: ... Journal access"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Only premium users can create/view journal entries; non-premium users see locked state and upgrade CTA",
+        "User can add a new entry, input text, and save it",
+        "Saved entries persist per user and are visible on subsequent app loads for that user",
+        "Journal UI uses the lined paper styling and specified button treatments"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create the Profile / Settings screen with a blush pink fade background, user info including optional nickname, a subscription status indicator that shows a gold badge when premium, and settings options rendered with soft rose minimalist icons. Persist nickname and display it across the app where appropriate.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "7️⃣ Profile / Settings\n\nBackground: Blush pink fade\n\nUser info (nickname optional)\n\nSubscription Status: Gold badge if premium\n\nSettings icons: Soft rose minimalist icons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can set/update an optional nickname and it persists per user",
+        "Premium users see a gold premium badge; non-premium users do not",
+        "Settings list renders with minimalist soft-rose icons and consistent Velora styling"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add app-wide user identity support using Internet Identity so that status selection, premium status, favorites, and journal entries are stored per user principal. The app should handle signed-out state gracefully (e.g., allow browsing public/free portions, but require sign-in for saving personal data).",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "My Private Thoughts",
+          "Favorite option: Heart icon, soft pink",
+          "User selects status ... Persist the selected status",
+          "Subscription Status: Gold badge if premium"
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can sign in/out with Internet Identity",
+        "User-specific data (status, nickname, premium flag, favorites, journal entries) is scoped to the signed-in principal",
+        "If signed out, the app clearly prompts for sign-in when attempting to save personal data (journal/favorites/profile changes)"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Backend: implement Motoko canister APIs and stable storage for per-user profile (status, optional nickname, premium flag), Text Softly favorites, and journal entries. Ensure data survives canister upgrades using stable data patterns consistent with the single-actor architecture.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "User info (nickname optional)",
+          "Subscription Status: Gold badge if premium",
+          "Favorite option: Heart icon, soft pink",
+          "Journal Screen ... Save"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Canister exposes query/update methods to get/set profile fields, premium status, favorites list, and journal entries",
+        "All stored data is keyed by caller principal",
+        "Data persists across reloads and is designed to be stable across upgrades (no runtime-only loss)"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement Audio Lessons as a premium-gated section reachable from the Premium Features tabs. For the MVP, provide a simple list UI (titles + locked states for non-premium) consistent with the Velora theme; playback can be represented as non-functional placeholders unless audio assets are provided.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "4️⃣ Premium Features Screen\n\nTabs: Text Softly / Journal / Audio Lessons",
+          "Premium: ... Audio lessons"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Audio Lessons tab exists and is premium-gated",
+        "Non-premium users see locked UI; premium users can view the list",
+        "UI matches the global theme and uses consistent card/button patterns"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use English for all user-facing text.",
+    "Backend must remain a single Motoko actor; do not introduce additional backend services.",
+    "Do not modify any frontend files under frontend.immutablePaths (compose existing UI components instead).",
+    "Do not add ads anywhere in the MVP."
+  ],
+  "nonGoals": [
+    "Integrating real payment processing (e.g., Stripe) or app-store subscriptions in this MVP unless explicitly added later.",
+    "Third-party authentication providers other than Internet Identity.",
+    "Real-time messaging/chat features."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Subtle floral corner accent illustration, blush/rose/gold on transparent background (floral-corner-accent.dim_512x512.png)",
+      "Minimalist soft-rose padlock icon on transparent background (icon-padlock-softrose.dim_128x128.png)",
+      "Minimalist soft-pink heart icon on transparent background (icon-heart-softpink.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}

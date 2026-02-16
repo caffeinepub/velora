@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build the Velora mobile app MVP: a soft, feminine relationship/self-growth program with a 30-day daily lesson flow, premium subscription unlocks, text message generator, journaling, and audio lessons, following the specified brand palette and typography.",
+  "architectural_notes": [
+    "Project name: Velora",
+    "Brand styling: Blush Pink #F6C1C7, Warm Cream #FDF6EC, Soft Gold #D4AF7F, Muted Rose #E7A9B0",
+    "Typography: Headings Playfair Display; body Montserrat/Lato; affirmations/quotes Great Vibes",
+    "Monetization: subscription ₦2,500/month; free first 3 days of 30-day program; premium unlocks Text Softly, Journal, Audio Lessons; no ads at launch"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Subtle floral corner accent illustration, blush/rose/gold on transparent background (floral-corner-accent.dim_512x512.png)\n- Minimalist soft-rose padlock icon on transparent background (icon-padlock-softrose.dim_128x128.png)\n- Minimalist soft-pink heart icon on transparent background (icon-heart-softpink.dim_128x128.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-the-global-velora-design-system-across-the-app-use-the-provided-color-palette-f6c1c7-blush-pink-fdf6ec-warm-cream-d4af7f-soft-gold-e7a9b0-muted-rose-typography-playfair-display-for-headings-montserrat-or-lato-for-body-great-vibes-for-affirmations-quotes-rounded-components-soft-shadows-subtle-gradients-gentle-fade-in-animations-and-consistent-spacing-layout-patterns",
+      "title": "Implement the global Velora design system across the app: use the provided color palette (#F6C1C7 blush pink, #FDF6EC warm cream, #D4AF7F soft gold, #E7A9B0 muted rose), typography (Playfair Display for headings, Montserrat or Lato for body, Great Vibes for affirmations/quotes), rounded components, soft shadows, subtle gradients, gentle fade-in animations, and consistent spacing/layout patterns.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-splash-screen-ui-with-a-blush-pink-gradient-background-a-typographic-logo-reading-velora-playfair-display-with-a-soft-gold-accent-treatment-the-tagline-love-deeply-stay-whole-and-a-primary-cta-button-labeled-start-your-journey-cream-background-blush-text-rounded-navigating-via-the-cta-should-move-the-user-to-the-welcome-screen",
+      "title": "Create the Splash Screen UI with a blush pink gradient background, a typographic logo reading “Velora” (Playfair Display with a soft-gold accent treatment), the tagline “Love deeply. Stay whole.”, and a primary CTA button labeled “Start Your Journey” (cream background, blush text, rounded). Navigating via the CTA should move the user to the Welcome Screen.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-welcome-screen-where-the-user-selects-a-relationship-status-from-exactly-single-in-a-relationship-healing-married-use-a-soft-card-layout-with-muted-rose-borders-and-a-rounded-gold-continue-button-persist-the-selected-status-for-the-user-and-proceed-to-the-home-daily-program-screen-on-continue",
+      "title": "Create the Welcome Screen where the user selects a relationship/status from exactly: “Single”, “In a relationship”, “Healing”, “Married”. Use a soft card layout with muted rose borders and a rounded gold “Continue” button. Persist the selected status for the user and proceed to the Home/Daily Program screen on Continue.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-home-daily-program-screen-for-a-30-day-program-show-a-day-header-e-g-day-1-your-soft-feminine-glow-a-lesson-card-blush-pink-card-with-playfair-heading-montserrat-lato-body-a-centered-daily-affirmation-rendered-in-great-vibes-with-soft-rose-color-and-next-previous-navigation-buttons-with-gold-accents-the-user-must-be-able-to-move-between-days-1-30",
+      "title": "Implement the Home / Daily Program screen for a 30-day program: show a day header (e.g., “Day 1 – Your Soft Feminine Glow”), a lesson card (blush pink card with Playfair heading + Montserrat/Lato body), a centered daily affirmation rendered in Great Vibes with soft rose color, and Next/Previous navigation buttons with gold accents. The user must be able to move between days 1–30.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-premium-gating-rules-and-ui-across-the-app-free-users-can-access-only-the-first-3-days-of-the-30-day-program-premium-users-can-access-all-30-days-plus-text-softly-scripts-journal-and-audio-lessons-premium-only-content-must-be-clearly-labeled-visually-separated-and-locked-items-must-show-padlock-indicators-no-ads-should-be-shown-anywhere-in-the-mvp",
+      "title": "Implement premium gating rules and UI across the app: free users can access only the first 3 days of the 30-day program; premium users can access all 30 days plus Text Softly scripts, Journal, and Audio Lessons. Premium-only content must be clearly labeled/visually separated, and locked items must show padlock indicators. No ads should be shown anywhere in the MVP.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-premium-features-screen-with-tabs-labeled-exactly-text-softly-journal-and-audio-lessons-show-locked-content-indicators-padlock-icons-when-the-user-is-not-premium-include-a-primary-cta-button-labeled-exactly-unlock-full-program-2-500-month-with-a-blush-gradient-background-that-initiates-the-premium-upgrade-flow-in-app-mvp-implement-as-an-app-internal-upgrade-action-that-toggles-stores-premium-status-no-external-ads",
+      "title": "Create the Premium Features screen with tabs labeled exactly “Text Softly”, “Journal”, and “Audio Lessons”. Show locked content indicators (padlock icons) when the user is not premium. Include a primary CTA button labeled exactly “Unlock Full Program – ₦2,500/month” with a blush gradient background that initiates the premium upgrade flow in-app (MVP: implement as an app-internal upgrade action that toggles/stores premium status; no external ads).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-text-softly-generator-screen-show-category-cards-for-exactly-pull-away-flirty-apology-missing-you-and-boundaries-when-a-category-is-chosen-display-a-randomly-generated-text-message-in-a-speech-bubble-style-include-a-favorite-heart-toggle-for-the-displayed-generated-message-and-maintain-a-per-user-list-of-favorites-access-must-be-premium-gated-per-the-monetization-rules",
+      "title": "Implement the Text Softly Generator screen: show category cards for exactly “Pull Away”, “Flirty”, “Apology”, “Missing You”, and “Boundaries”. When a category is chosen, display a randomly generated text message in a speech-bubble style. Include a favorite (heart) toggle for the displayed/generated message and maintain a per-user list of favorites. Access must be premium-gated per the monetization rules.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-journal-screen-with-a-lined-entry-style-on-a-cream-background-header-text-exactly-my-private-thoughts-playfair-display-an-add-entry-cta-styled-as-a-rounded-blush-card-with-gold-accent-text-and-a-save-button-styled-as-a-soft-rose-bubble-journal-entries-must-be-stored-privately-per-user-and-gated-to-premium-users",
+      "title": "Implement the Journal screen with a lined-entry style on a cream background, header text exactly “My Private Thoughts” (Playfair Display), an “Add Entry” CTA styled as a rounded blush card with gold accent text, and a “Save” button styled as a soft rose bubble. Journal entries must be stored privately per user and gated to premium users.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-profile-settings-screen-with-a-blush-pink-fade-background-user-info-including-optional-nickname-a-subscription-status-indicator-that-shows-a-gold-badge-when-premium-and-settings-options-rendered-with-soft-rose-minimalist-icons-persist-nickname-and-display-it-across-the-app-where-appropriate",
+      "title": "Create the Profile / Settings screen with a blush pink fade background, user info including optional nickname, a subscription status indicator that shows a gold badge when premium, and settings options rendered with soft rose minimalist icons. Persist nickname and display it across the app where appropriate.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-app-wide-user-identity-support-using-internet-identity-so-that-status-selection-premium-status-favorites-and-journal-entries-are-stored-per-user-principal-the-app-should-handle-signed-out-state-gracefully-e-g-allow-browsing-public-free-portions-but-require-sign-in-for-saving-personal-data",
+      "title": "Add app-wide user identity support using Internet Identity so that status selection, premium status, favorites, and journal entries are stored per user principal. The app should handle signed-out state gracefully (e.g., allow browsing public/free portions, but require sign-in for saving personal data).",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-audio-lessons-as-a-premium-gated-section-reachable-from-the-premium-features-tabs-for-the-mvp-provide-a-simple-list-ui-titles-locked-states-for-non-premium-consistent-with-the-velora-theme-playback-can-be-represented-as-non-functional-placeholders-unless-audio-assets-are-provided",
+      "title": "Implement Audio Lessons as a premium-gated section reachable from the Premium Features tabs. For the MVP, provide a simple list UI (titles + locked states for non-premium) consistent with the Velora theme; playback can be represented as non-functional placeholders unless audio assets are provided.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create Splash Screen with Velora branding, tagline, and “Start Your Journey” CTA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Create Welcome Screen with relationship status selection (Single / In a relationship / Healing / Married) and Continue CTA",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement Home/Daily Program screen with day header, lesson card, daily affirmation, and Next/Previous navigation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement Premium Features screen with tabs (Text Softly / Journal / Audio Lessons), locked content indicators, and subscription CTA (₦2,500/month)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Build Text Softly Generator with categories, random script generation, speech-bubble display, and favorites (heart icon)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Build Journal feature with private entries UI (lined style), add entry and save flows; gated for premium per monetization plan",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Build Profile/Settings screen with optional nickname, subscription status badge, and settings options",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Implement monetization rules: free access to first 3 days; premium unlocks full 30-day program + Text Softly + Journal + Audio lessons; no ads at launch",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Apply global UI/UX styling: palette, fonts, rounded buttons, soft shadows, floral corner accents, subtle fade-in animations, and soft gradients across screens",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Backend: implement Motoko canister APIs and stable storage for per-user profile (status, optional nickname, premium flag), Text Softly favorites, and journal entries. Ensure data survives canister upgrades using stable data patterns consistent with the single-actor architecture.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Velora",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

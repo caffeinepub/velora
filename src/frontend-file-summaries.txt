@@ -1,0 +1,19 @@
+{
+  "frontend/src/index.css": "Global styles with Velora design system (blush/cream/gold/rose palette), custom fonts (Playfair Display, Montserrat, Great Vibes), utility classes for gradients, shadows, fade-in animations, and lined-paper effect for journal.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Velora color tokens, custom border radius values, soft shadow utilities, and fade-in animation keyframes.",
+  "frontend/src/App.tsx": "Main app component with TanStack Router setup defining all routes (splash, welcome, daily program, premium, text softly, journal, profile) and root layout.",
+  "frontend/src/components/layout/AppLayout.tsx": "Root layout component that wraps all routes with the app header and toast notifications.",
+  "frontend/src/components/layout/AppHeader.tsx": "Sticky header with Velora branding, user nickname/premium badge display, and navigation dropdown menu (hidden on splash screen).",
+  "frontend/src/screens/SplashScreen.tsx": "Landing screen with blush gradient background, Velora logo, tagline \"Love deeply. Stay whole.\", floral accents, and \"Start Your Journey\" CTA.",
+  "frontend/src/screens/WelcomeScreen.tsx": "Relationship status selection screen with four card options (Single, In a relationship, Healing, Married), sign-in prompt, and Continue button that saves status and navigates to daily program.",
+  "frontend/src/screens/DailyProgramScreen.tsx": "30-day program viewer with day navigation, lesson cards, affirmations in Great Vibes font, premium gating (days 4-30 locked for free users), and fade-in transitions.",
+  "frontend/src/screens/PremiumFeaturesScreen.tsx": "Premium upgrade screen with three tabs (Text Softly, Journal, Audio Lessons), locked state indicators, upgrade CTA (₦2,500/month), and navigation to premium features.",
+  "frontend/src/screens/TextSoftlyScreen.tsx": "Premium-gated message generator with five category cards, random message display in speech-bubble UI, heart toggle for favorites, and favorites list.",
+  "frontend/src/screens/JournalScreen.tsx": "Premium-gated journal with lined-paper styling, add entry form, save/delete actions, and chronological entry list display.",
+  "frontend/src/screens/ProfileScreen.tsx": "User profile and settings screen with nickname editor, relationship status display, premium badge, sign-in/out button, and Caffeine.ai footer attribution.",
+  "frontend/src/components/auth/AuthButton.tsx": "Internet Identity sign-in/out button with loading states and query cache clearing on logout.",
+  "frontend/src/components/premium/PremiumGate.tsx": "Reusable wrapper component that shows locked state with padlock icon and upgrade CTA when user is not premium or not signed in.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations (user profile, premium status, favorites, journal entries) with proper cache invalidation and error handling.",
+  "frontend/src/data/program30Days.ts": "Static data for all 30 days of the program with titles, lesson content, and daily affirmations.",
+  "frontend/src/data/textSoftlyMessages.ts": "Curated message pools for all five Text Softly categories (Pull Away, Flirty, Apology, Missing You, Boundaries)."
+}

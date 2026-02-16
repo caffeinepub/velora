@@ -1,0 +1,322 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Velora MVP frontend: themed 30-day program with II identity, premium gating, Text Softly, journal, and profile",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Apply Velora global theme (palette, typography, rounded UI, soft shadows/gradients, fade-in animations, spacing) across the app.",
+      "acceptanceCriteria": [
+        "All primary surfaces/buttons/cards use the specified palette and avoid off-brand colors",
+        "Headings render in Playfair Display; body copy renders in Montserrat or Lato; affirmation/quote text renders in Great Vibes",
+        "Buttons and cards are rounded with soft shadows; screens use soft gradients and gentle fade-in transitions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styling entry with Velora design tokens (CSS variables for blush/cream/gold/rose), global typography (import Playfair Display, Montserrat or Lato, Great Vibes), base rounded/shadow patterns, subtle gradients, and a reusable gentle fade-in animation utility."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with named Velora colors (blush/cream/gold/rose), add/standardize border radius, soft shadow presets, and a fade-in animation/keyframes used by screens."
+        },
+        {
+          "path": "frontend/src/components/velora/VeloraLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout wrapper to enforce consistent padding/spacing, background gradients, and fade-in transitions across screens."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create Splash Screen with Velora gradient, typographic logo/tagline, and CTA navigating to Welcome.",
+      "acceptanceCriteria": [
+        "Splash screen matches specified background, logo, tagline, and CTA styling",
+        "Clicking/tapping “Start Your Journey” navigates to the Welcome Screen"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/SplashScreen.tsx",
+          "operation": "create",
+          "description": "Implement the Splash UI (blush gradient, “Velora” typographic logo with soft-gold accent, tagline, and “Start Your Journey” primary CTA) using Velora theme primitives."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app router and register the Splash route as the initial screen; wire CTA navigation from Splash to Welcome."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Welcome Screen status selection, validate selection, persist for signed-in users, and continue to the daily program.",
+      "acceptanceCriteria": [
+        "User can select exactly one of the four statuses and see clear selected-state styling",
+        "Continue is disabled until a status is selected (or an equivalent clear validation is present)",
+        "Selected status is persisted and available on subsequent app loads/sign-ins",
+        "Continue navigates to the Home/Daily Program screen"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/WelcomeScreen.tsx",
+          "operation": "create",
+          "description": "Build Welcome Screen with exactly four status options (“Single”, “In a relationship”, “Healing”, “Married”) in a soft card layout with muted-rose borders; add a rounded gold “Continue” button with disabled state until selection is made."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Add a React Query hook for loading/saving the current user profile via the actor (status updates); handle signed-out state by preventing backend writes and enabling an in-UI sign-in prompt instead."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Welcome route and wire Continue navigation to the Home/Daily Program screen; ensure selected status is reflected after reload when signed in."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement the 30-day Home/Daily Program screen with themed lesson card, affirmation styling, and day navigation with fade-in transitions.",
+      "acceptanceCriteria": [
+        "User can navigate forward/backward across days 1–30 with clear disabled states at boundaries",
+        "Each day shows a title, lesson body text, and an affirmation area with Great Vibes styling",
+        "Transitions between days use gentle fade-in animation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/data/program30Days.ts",
+          "operation": "create",
+          "description": "Add a static 30-day program data source (titles, lesson text, affirmations) for days 1–30 used by the Home/Daily Program screen."
+        },
+        {
+          "path": "frontend/src/screens/DailyProgramScreen.tsx",
+          "operation": "create",
+          "description": "Implement the Home/Daily Program UI: day header, blush lesson card (Playfair heading + Montserrat/Lato body), centered Great Vibes affirmation, and gold-accent Next/Previous buttons with boundary disabled states; apply gentle fade-in on day change."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Home/Daily Program route and ensure navigation flow from Welcome lands here."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement premium gating UI/logic: free access days 1–3 only; premium unlocks days 1–30 plus Text Softly, Journal, and Audio Lessons; show padlocks and upgrade prompts; ensure no ads.",
+      "acceptanceCriteria": [
+        "Non-premium users cannot open days 4–30; attempting to access prompts the premium upgrade path",
+        "Text Softly, Journal, and Audio Lessons are inaccessible for non-premium users and show locked UI states",
+        "Premium users can access days 1–30 and all premium tabs/features",
+        "No ad components or ad placeholders are present"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/icon-padlock-softrose.dim_128x128.png",
+          "operation": "create",
+          "description": "Add generated asset at the exact path frontend/public/assets/generated/icon-padlock-softrose.dim_128x128.png and wire it into locked UI states (verify final file name matches exactly)."
+        },
+        {
+          "path": "frontend/src/hooks/usePremium.ts",
+          "operation": "create",
+          "description": "Create a hook to fetch and cache premium status from the backend actor (and expose helpers for checking whether content is locked), with graceful handling when signed out."
+        },
+        {
+          "path": "frontend/src/components/premium/PremiumGate.tsx",
+          "operation": "create",
+          "description": "Create a reusable PremiumGate wrapper that renders children when unlocked, otherwise shows a locked state with a padlock indicator and a clear upgrade CTA navigation."
+        },
+        {
+          "path": "frontend/src/screens/DailyProgramScreen.tsx",
+          "operation": "modify",
+          "description": "Apply gating so non-premium users (including signed-out) can view only days 1–3; accessing days 4–30 triggers locked UI and routes the user to the Premium Features screen upgrade path."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire navigation to Premium Features from locked prompts; ensure no ad UI is introduced anywhere in the route layout/navigation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Premium Features screen with tabs (Text Softly, Journal, Audio Lessons), locked indicators, and in-app upgrade CTA that persists premium status.",
+      "acceptanceCriteria": [
+        "Premium Features screen displays the 3 tabs with correct labels",
+        "If user is not premium, premium-only areas show padlock icons and a clear locked message/state",
+        "The “Unlock Full Program – ₦2,500/month” CTA updates premium status for the signed-in user and unlocks premium features immediately",
+        "Premium state persists across reloads for the same user"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "operation": "create",
+          "description": "Implement Premium Features screen with tabs labeled exactly “Text Softly”, “Journal”, and “Audio Lessons”; show locked padlock indicators when not premium; include CTA button labeled exactly “Unlock Full Program – ₦2,500/month” with a blush gradient background."
+        },
+        {
+          "path": "frontend/src/hooks/usePremium.ts",
+          "operation": "modify",
+          "description": "Add an upgrade action that triggers the backend premium-toggle capability for signed-in users and refreshes cached premium/profile queries so features unlock immediately; for signed-out users, prompt to sign in before upgrading."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Premium Features route and ensure other locked features route here for upgrades."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement premium-gated Text Softly Generator with category cards, random message generation in a speech bubble, and per-user favorites with heart toggle.",
+      "acceptanceCriteria": [
+        "Only premium users can use the generator; non-premium users see a locked state and upgrade CTA",
+        "Selecting a category generates and displays a message in a speech-bubble UI",
+        "User can favorite/unfavorite a generated message with a heart toggle",
+        "Favorites persist per user and are visible again after refresh/sign-in"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/icon-heart-softpink.dim_128x128.png",
+          "operation": "create",
+          "description": "Add generated asset at the exact path frontend/public/assets/generated/icon-heart-softpink.dim_128x128.png and wire it into the favorites toggle UI (verify final file name matches exactly)."
+        },
+        {
+          "path": "frontend/src/data/textSoftlyMessages.ts",
+          "operation": "create",
+          "description": "Add a curated message pool keyed by the exact categories required (Pull Away, Flirty, Apology, Missing You, Boundaries) used for random generation."
+        },
+        {
+          "path": "frontend/src/hooks/useFavorites.ts",
+          "operation": "create",
+          "description": "Create React Query hooks for loading favorites and toggling favorite/unfavorite via the actor; enforce signed-in checks for write actions and handle authorization errors gracefully."
+        },
+        {
+          "path": "frontend/src/screens/TextSoftlyScreen.tsx",
+          "operation": "create",
+          "description": "Implement the Text Softly Generator UI with category cards for exactly “Pull Away”, “Flirty”, “Apology”, “Missing You”, “Boundaries”; render a randomly generated message in a speech-bubble style; add heart toggle backed by per-user favorites; wrap the feature in PremiumGate."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register a navigable route for Text Softly (reachable from the Premium Features tab content) and ensure non-premium navigation lands on the locked/upgrade state rather than an inaccessible blank screen."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement premium-gated Journal screen with lined-paper UI, Add Entry CTA, Save button, and per-user private entry persistence.",
+      "acceptanceCriteria": [
+        "Only premium users can create/view journal entries; non-premium users see locked state and upgrade CTA",
+        "User can add a new entry, input text, and save it",
+        "Saved entries persist per user and are visible on subsequent app loads for that user",
+        "Journal UI uses the lined paper styling and specified button treatments"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useJournal.ts",
+          "operation": "create",
+          "description": "Create React Query hooks to fetch journal entries and add new entries via the actor; require sign-in for saving and show user-friendly messaging on authorization failures."
+        },
+        {
+          "path": "frontend/src/screens/JournalScreen.tsx",
+          "operation": "create",
+          "description": "Implement Journal screen UI: cream background with lined-entry styling, header text exactly “My Private Thoughts” (Playfair Display), “Add Entry” CTA styled as a rounded blush card with gold accent text, and “Save” button styled as a soft rose bubble; wrap in PremiumGate for premium gating."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register a navigable route for Journal (reachable from Premium Features) and ensure non-premium users are shown the locked/upgrade experience."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create Profile/Settings screen with blush fade background, nickname editing, premium badge indicator, and settings list with minimalist soft-rose icons; persist nickname and display across app.",
+      "acceptanceCriteria": [
+        "User can set/update an optional nickname and it persists per user",
+        "Premium users see a gold premium badge; non-premium users do not",
+        "Settings list renders with minimalist soft-rose icons and consistent Velora styling"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/ProfileScreen.tsx",
+          "operation": "create",
+          "description": "Build Profile/Settings screen with blush fade background, user info including optional nickname editor, subscription status indicator with a gold badge when premium, and settings options with minimalist soft-rose icons; prompt sign-in before saving nickname when signed out."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "modify",
+          "description": "Add nickname update support and ensure nickname is cached and re-used across the app after updates."
+        },
+        {
+          "path": "frontend/src/components/velora/AppHeader.tsx",
+          "operation": "create",
+          "description": "Create an app header component that displays the user nickname when available (and otherwise a neutral fallback) and provides access to Profile and Premium Features navigation."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Profile route and wire navigation (e.g., header link/button) so the Profile screen is reachable; ensure nickname display is used where appropriate (header)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add Internet Identity sign-in/out UI and signed-out behavior so user-scoped data (status, nickname, premium, favorites, journal) is stored per principal and guarded when signed out.",
+      "acceptanceCriteria": [
+        "User can sign in/out with Internet Identity",
+        "User-specific data (status, nickname, premium flag, favorites, journal entries) is scoped to the signed-in principal",
+        "If signed out, the app clearly prompts for sign-in when attempting to save personal data (journal/favorites/profile changes)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/auth/AuthButton.tsx",
+          "operation": "create",
+          "description": "Create a sign-in/out button using the existing Internet Identity hook (from selected component: authorization). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/auth/RequireSignInInline.tsx",
+          "operation": "create",
+          "description": "Add a small inline prompt component to require sign-in before saving personal data (favorites, journal, profile edits), with a clear action that triggers Internet Identity login. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useUserSession.ts",
+          "operation": "create",
+          "description": "Create a small session hook that derives signed-in state from the Internet Identity provider and ensures UI clears/avoids showing cached personal data when identity is missing (React Query cache is cleared on logout by the auth button). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire AuthButton into the global layout/header and ensure signed-out users can still browse free portions (e.g., days 1–3), while save actions for profile/journal/favorites show RequireSignInInline instead of failing silently. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement Audio Lessons as a premium-gated tab section with a simple themed list and locked states for non-premium users.",
+      "acceptanceCriteria": [
+        "Audio Lessons tab exists and is premium-gated",
+        "Non-premium users see locked UI; premium users can view the list",
+        "UI matches the global theme and uses consistent card/button patterns"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/screens/AudioLessonsTab.tsx",
+          "operation": "create",
+          "description": "Create Audio Lessons tab content with a simple themed list (titles + placeholder playback affordances) and a locked state for non-premium users; use PremiumGate to enforce gating."
+        },
+        {
+          "path": "frontend/src/screens/PremiumFeaturesScreen.tsx",
+          "operation": "modify",
+          "description": "Wire the “Audio Lessons” tab to render the AudioLessonsTab content and ensure locked/premium behavior matches gating rules."
+        },
+        {
+          "path": "frontend/public/assets/generated/floral-corner-accent.dim_512x512.png",
+          "operation": "create",
+          "description": "Add generated asset at the exact path frontend/public/assets/generated/floral-corner-accent.dim_512x512.png and use it as a subtle decorative accent on at least one primary screen (e.g., Splash or Premium Features) while keeping layout accessible and uncluttered."
+        }
+      ]
+    }
+  ]
+}

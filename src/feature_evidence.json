@@ -1,0 +1,227 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-the-global-velora-design-system-across-the-app-use-the-provided-color-palette-f6c1c7-blush-pink-fdf6ec-warm-cream-d4af7f-soft-gold-e7a9b0-muted-rose-typography-playfair-display-for-headings-montserrat-or-lato-for-body-great-vibes-for-affirmations-quotes-rounded-components-soft-shadows-subtle-gradients-gentle-fade-in-animations-and-consistent-spacing-layout-patterns",
+      "featureTitle": "Implement the global Velora design system across the app: use the provided color palette (#F6C1C7 blush pink, #FDF6EC warm cream, #D4AF7F soft gold, #E7A9B0 muted rose), typography (Playfair Display for headings, Montserrat or Lato for body, Great Vibes for affirmations/quotes), rounded components, soft shadows, subtle gradients, gentle fade-in animations, and consistent spacing/layout patterns.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-splash-screen-ui-with-a-blush-pink-gradient-background-a-typographic-logo-reading-velora-playfair-display-with-a-soft-gold-accent-treatment-the-tagline-love-deeply-stay-whole-and-a-primary-cta-button-labeled-start-your-journey-cream-background-blush-text-rounded-navigating-via-the-cta-should-move-the-user-to-the-welcome-screen",
+      "featureTitle": "Create the Splash Screen UI with a blush pink gradient background, a typographic logo reading “Velora” (Playfair Display with a soft-gold accent treatment), the tagline “Love deeply. Stay whole.”, and a primary CTA button labeled “Start Your Journey” (cream background, blush text, rounded). Navigating via the CTA should move the user to the Welcome Screen.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/screens/SplashScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-welcome-screen-where-the-user-selects-a-relationship-status-from-exactly-single-in-a-relationship-healing-married-use-a-soft-card-layout-with-muted-rose-borders-and-a-rounded-gold-continue-button-persist-the-selected-status-for-the-user-and-proceed-to-the-home-daily-program-screen-on-continue",
+      "featureTitle": "Create the Welcome Screen where the user selects a relationship/status from exactly: “Single”, “In a relationship”, “Healing”, “Married”. Use a soft card layout with muted rose borders and a rounded gold “Continue” button. Persist the selected status for the user and proceed to the Home/Daily Program screen on Continue.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/screens/WelcomeScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-home-daily-program-screen-for-a-30-day-program-show-a-day-header-e-g-day-1-your-soft-feminine-glow-a-lesson-card-blush-pink-card-with-playfair-heading-montserrat-lato-body-a-centered-daily-affirmation-rendered-in-great-vibes-with-soft-rose-color-and-next-previous-navigation-buttons-with-gold-accents-the-user-must-be-able-to-move-between-days-1-30",
+      "featureTitle": "Implement the Home / Daily Program screen for a 30-day program: show a day header (e.g., “Day 1 – Your Soft Feminine Glow”), a lesson card (blush pink card with Playfair heading + Montserrat/Lato body), a centered daily affirmation rendered in Great Vibes with soft rose color, and Next/Previous navigation buttons with gold accents. The user must be able to move between days 1–30.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/data/program30Days.ts",
+        "frontend/src/screens/DailyProgramScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-premium-gating-rules-and-ui-across-the-app-free-users-can-access-only-the-first-3-days-of-the-30-day-program-premium-users-can-access-all-30-days-plus-text-softly-scripts-journal-and-audio-lessons-premium-only-content-must-be-clearly-labeled-visually-separated-and-locked-items-must-show-padlock-indicators-no-ads-should-be-shown-anywhere-in-the-mvp",
+      "featureTitle": "Implement premium gating rules and UI across the app: free users can access only the first 3 days of the 30-day program; premium users can access all 30 days plus Text Softly scripts, Journal, and Audio Lessons. Premium-only content must be clearly labeled/visually separated, and locked items must show padlock indicators. No ads should be shown anywhere in the MVP.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/premium/PremiumGate.tsx",
+        "frontend/src/screens/DailyProgramScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-premium-features-screen-with-tabs-labeled-exactly-text-softly-journal-and-audio-lessons-show-locked-content-indicators-padlock-icons-when-the-user-is-not-premium-include-a-primary-cta-button-labeled-exactly-unlock-full-program-2-500-month-with-a-blush-gradient-background-that-initiates-the-premium-upgrade-flow-in-app-mvp-implement-as-an-app-internal-upgrade-action-that-toggles-stores-premium-status-no-external-ads",
+      "featureTitle": "Create the Premium Features screen with tabs labeled exactly “Text Softly”, “Journal”, and “Audio Lessons”. Show locked content indicators (padlock icons) when the user is not premium. Include a primary CTA button labeled exactly “Unlock Full Program – ₦2,500/month” with a blush gradient background that initiates the premium upgrade flow in-app (MVP: implement as an app-internal upgrade action that toggles/stores premium status; no external ads).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/screens/PremiumFeaturesScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-text-softly-generator-screen-show-category-cards-for-exactly-pull-away-flirty-apology-missing-you-and-boundaries-when-a-category-is-chosen-display-a-randomly-generated-text-message-in-a-speech-bubble-style-include-a-favorite-heart-toggle-for-the-displayed-generated-message-and-maintain-a-per-user-list-of-favorites-access-must-be-premium-gated-per-the-monetization-rules",
+      "featureTitle": "Implement the Text Softly Generator screen: show category cards for exactly “Pull Away”, “Flirty”, “Apology”, “Missing You”, and “Boundaries”. When a category is chosen, display a randomly generated text message in a speech-bubble style. Include a favorite (heart) toggle for the displayed/generated message and maintain a per-user list of favorites. Access must be premium-gated per the monetization rules.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/data/textSoftlyMessages.ts",
+        "frontend/src/screens/TextSoftlyScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-journal-screen-with-a-lined-entry-style-on-a-cream-background-header-text-exactly-my-private-thoughts-playfair-display-an-add-entry-cta-styled-as-a-rounded-blush-card-with-gold-accent-text-and-a-save-button-styled-as-a-soft-rose-bubble-journal-entries-must-be-stored-privately-per-user-and-gated-to-premium-users",
+      "featureTitle": "Implement the Journal screen with a lined-entry style on a cream background, header text exactly “My Private Thoughts” (Playfair Display), an “Add Entry” CTA styled as a rounded blush card with gold accent text, and a “Save” button styled as a soft rose bubble. Journal entries must be stored privately per user and gated to premium users.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/screens/JournalScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-profile-settings-screen-with-a-blush-pink-fade-background-user-info-including-optional-nickname-a-subscription-status-indicator-that-shows-a-gold-badge-when-premium-and-settings-options-rendered-with-soft-rose-minimalist-icons-persist-nickname-and-display-it-across-the-app-where-appropriate",
+      "featureTitle": "Create the Profile / Settings screen with a blush pink fade background, user info including optional nickname, a subscription status indicator that shows a gold badge when premium, and settings options rendered with soft rose minimalist icons. Persist nickname and display it across the app where appropriate.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/screens/ProfileScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-app-wide-user-identity-support-using-internet-identity-so-that-status-selection-premium-status-favorites-and-journal-entries-are-stored-per-user-principal-the-app-should-handle-signed-out-state-gracefully-e-g-allow-browsing-public-free-portions-but-require-sign-in-for-saving-personal-data",
+      "featureTitle": "Add app-wide user identity support using Internet Identity so that status selection, premium status, favorites, and journal entries are stored per user principal. The app should handle signed-out state gracefully (e.g., allow browsing public/free portions, but require sign-in for saving personal data).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/auth/AuthButton.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-audio-lessons-as-a-premium-gated-section-reachable-from-the-premium-features-tabs-for-the-mvp-provide-a-simple-list-ui-titles-locked-states-for-non-premium-consistent-with-the-velora-theme-playback-can-be-represented-as-non-functional-placeholders-unless-audio-assets-are-provided",
+      "featureTitle": "Implement Audio Lessons as a premium-gated section reachable from the Premium Features tabs. For the MVP, provide a simple list UI (titles + locked states for non-premium) consistent with the Velora theme; playback can be represented as non-functional placeholders unless audio assets are provided.",
+      "files": [
+        "frontend/src/screens/PremiumFeaturesScreen.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

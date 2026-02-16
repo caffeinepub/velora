@@ -1,0 +1,80 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-15T23:57:23.255Z",
+  "summary": "Diff adds a full set of new frontend screens/components/hooks plus a Motoko backend actor with profile/premium/favorites/journal APIs. Core flows (splash → welcome → daily program), II auth hooks, and premium gating components appear implemented. However, several requirements are either not evidenced in the diff summary or appear mismatched (notably the exact premium CTA label, backend stable storage patterns, and Audio Lessons/tab specifics).",
+  "missing_requirements": [
+    {
+      "id": "REQ-6",
+      "requirement": "Primary CTA button on Premium Features screen labeled exactly “Unlock Full Program – ₦2,500/month” that triggers in-app premium upgrade and persists.",
+      "reason": "The screen shows the exact text in a header (h2), but the actual Button label shown is “Unlock Premium”, not the required exact CTA label. Persistence is likely via backend premium flag, but the exact CTA label requirement is not met.",
+      "evidence": [
+        "frontend/src/screens/PremiumFeaturesScreen.tsx"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Backend stable storage for per-user profile, favorites, and journal entries that survives canister upgrades using stable data patterns in a single Motoko actor.",
+      "reason": "The diff shows in-memory Maps declared with `let` plus `var nextFavoriteId/nextJournalId`, but does not show `stable` variables and/or `system preupgrade/postupgrade` logic. The file is truncated, so upgrade-safe persistence is not evidenced.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Audio Lessons tab exists and is premium-gated, with a simple list UI (titles + locked states for non-premium).",
+      "reason": "PremiumFeaturesScreen is truncated before tab contents; no Audio Lessons list UI is visible in the provided diff summary.",
+      "evidence": [
+        "frontend/src/screens/PremiumFeaturesScreen.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Access-control/authorization system with secret initialization token (e.g., `_initializeAccessControlWithSecret` and `caffeineAdminToken` URL parameter).",
+      "reason": "BuildRequest requires Internet Identity user scoping, but does not request an admin secret token mechanism or access-control mixins/roles.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Emoji usage in user-facing UI strings (e.g., toast message “Welcome to Premium! 🌸” and category emojis).",
+      "reason": "Constraint says to use English for all user-facing text; emojis are not requested and may violate a strict interpretation of “English-only” user-facing content.",
+      "evidence": [
+        "frontend/src/screens/PremiumFeaturesScreen.tsx",
+        "frontend/src/screens/TextSoftlyScreen.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.62,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/auth/AuthButton.tsx",
+    "frontend/src/components/layout/AppHeader.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/premium/PremiumGate.tsx",
+    "frontend/src/data/program30Days.ts",
+    "frontend/src/data/textSoftlyMessages.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/screens/DailyProgramScreen.tsx",
+    "frontend/src/screens/JournalScreen.tsx",
+    "frontend/src/screens/PremiumFeaturesScreen.tsx",
+    "frontend/src/screens/ProfileScreen.tsx",
+    "frontend/src/screens/SplashScreen.tsx",
+    "frontend/src/screens/TextSoftlyScreen.tsx",
+    "frontend/src/screens/WelcomeScreen.tsx",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
